@@ -1,0 +1,8 @@
+This game will be grinding/farming (will try to make it as hack and slash) hell themed
+
+Game will have 7 maps as layers of hell, there will be normal monsters, better versions of tchem (upgreaded in some way), and bosses at the end of each map (or something like that)
+
+TODO:
+-think about 3/4 (for now) classes for heroes u will be playing (and also make some skills that differ tchem from others)
+
+-think of cool, fun and creative collecting system like gathering minerals for something

@@ -1,8 +1,8 @@
 import javax.swing.*;
 /*TODO:
     draw rest of the sprites (IN PROCESS)
-    fix moving with collision, it might be problem with HashMap of keys pressed
-*/
+    fix moving with collision in cross direction (hitbox bugs out)
+    */
 public class Main
 {
     public static void main(String[] args)

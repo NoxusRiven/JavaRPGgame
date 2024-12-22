@@ -30,7 +30,8 @@ public class TileManager
         /*TODO:
             Idea make it a hell grinder where there will be 7 maps as layers of hell (add some heroes based on that, maybe some heaven part to heroes and maps
         */
-        tiles[0] = new Tile(); //grass
+        //HELL THEMED BLOCKS
+        tiles[0] = new Tile(); //ground
         tiles[1] = new Tile(); //brick
         tiles[2] = new Tile(); //rock
         tiles[3] = new Tile(); //mineral
@@ -41,8 +42,8 @@ public class TileManager
         //DRAW IMAGES
         try
         {
-            tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/Sprites/Blocks/grass tile.png"));
-            tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/Sprites/Blocks/brick tile.png"));
+            tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/Sprites/Blocks/hell ground tile.png"));
+            tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/Sprites/Blocks/hell brick tile.png"));
 
         }
         catch (IOException e)

@@ -31,14 +31,46 @@ public class CollisionChecker
                 if(gp.tileManager.tiles[tileNum1].collision ||
                    gp.tileManager.tiles[tileNum2].collision)
                 {
-                    entity.collisionOn = true;
+                    entity.collisionOn=true;
+                    entity.worldY += entity.speed;
                 }
+                //entity.collisionOn=false;
                 break;
             case "down":
+                entityBotRow = (entityBotWorldY + entity.speed)/gp.tileSize;
+                tileNum1 = gp.tileManager.mapTileNum[entityLeftCol][entityBotRow];
+                tileNum2 = gp.tileManager.mapTileNum[entityRightCol][entityBotRow];
+                if(gp.tileManager.tiles[tileNum1].collision ||
+                   gp.tileManager.tiles[tileNum2].collision)
+                {
+                    entity.collisionOn=true;
+                    entity.worldY -= entity.speed;
+                }
+                //entity.collisionOn=false;
                 break;
             case "left":
+                entityLeftCol = (entityLeftWorldX - entity.speed)/gp.tileSize;
+                tileNum1 = gp.tileManager.mapTileNum[entityLeftCol][entityTopRow];
+                tileNum2 = gp.tileManager.mapTileNum[entityLeftCol][entityBotRow];
+                if(gp.tileManager.tiles[tileNum1].collision ||
+                   gp.tileManager.tiles[tileNum2].collision)
+                {
+                    entity.collisionOn=true;
+                    entity.worldX += entity.speed;
+                }
+                //entity.collisionOn=false;
                 break;
             case "right":
+                entityRightCol = (entityRightWorldX - entity.speed)/gp.tileSize;
+                tileNum1 = gp.tileManager.mapTileNum[entityRightCol][entityTopRow];
+                tileNum2 = gp.tileManager.mapTileNum[entityRightCol][entityBotRow];
+                if(gp.tileManager.tiles[tileNum1].collision ||
+                   gp.tileManager.tiles[tileNum2].collision)
+                {
+                    entity.collisionOn=true;
+                    entity.worldX -= entity.speed;
+                }
+                //entity.collisionOn=false;
                 break;
 
         }

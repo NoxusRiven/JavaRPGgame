@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable
     public GamePanel()
     {
         this.setPreferredSize(new Dimension(maxScreenWidth,maxScreenHeight));
-        this.setBackground(new Color(100,200,50)); //TODO make it same as ground image (or we will fill it with some [maybe hell] art)
+        this.setBackground(new Color(255,70,90)); //TODO make it same as ground image (or we will fill it with some [maybe hell] art)
         this.setDoubleBuffered(true);
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
@@ -73,8 +73,7 @@ public class GamePanel extends JPanel implements Runnable
             {
                 //update abstract position of a player
                 player.update();
-                System.out.println(player.direction);
-                System.out.println(player.keyHandler.pressedKeys);
+                colliChecker.checkTile(player);
                 //draw updated position of all sprites
                 repaint();
                 delta--;
@@ -91,5 +90,8 @@ public class GamePanel extends JPanel implements Runnable
 
         tileManager.draw(g2);
         player.draw(g2);
+
+        g2.fillRect(player.hitBox.x, player.hitBox.y, player.hitBox.width, player.hitBox.height);
+        g2.setColor(Color.black);
     }
 }

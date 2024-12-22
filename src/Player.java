@@ -37,38 +37,31 @@ public class Player extends Entity
 
         //COLLISION LOGIC
         collisionOn = false;
-        gp.colliChecker.checkTile(this);
     }
 
     public void update()
     {
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_W))
+        collisionOn = false;
+        gp.colliChecker.checkTile(this);
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_W) && !collisionOn)
         {
             direction = "up";
+            worldY -= speed;
         }
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_S))
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_S) && !collisionOn)
         {
             direction = "down";
+            worldY += speed;
         }
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_A))
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_A) && !collisionOn)
         {
             direction = "left";
+            worldX -= speed;
         }
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_D))
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_D) && !collisionOn)
         {
             direction = "right";
-        }
-
-        if(!collisionOn) //if there is no collision - move
-        {
-            switch(direction)
-            {
-                case "up": worldY -= speed; break;
-                case "down": worldY += speed; break;
-                case "left": worldX -= speed; break;
-                case "right": worldX += speed; break;
-
-            }
+            worldX += speed;
         }
     }
 
