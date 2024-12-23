@@ -50,12 +50,6 @@ public class TileManager
         {
             e.printStackTrace();
         }
-
-        //tiles[2].color = Color.gray; //rock
-
-        //tiles[3].color = new Color(90,100,150); //mineral
-
-
     }
 
     public void update()

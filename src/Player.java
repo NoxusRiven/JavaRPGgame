@@ -1,11 +1,11 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 public class Player extends Entity
 {
     //PLAYERS DEFAULT STATISTICS
     GamePanel gp;
-    final KeyHandler keyHandler;
     final int screenX, screenY;
 
     public Player(GamePanel gp, KeyHandler keyHandler)
@@ -31,34 +31,33 @@ public class Player extends Entity
 
         //PLAYER HITBOX
         int diff = 4;
-        int hitBoxDiffW = width-diff;
-        int hitBoxDiffH = height-diff;
+        int hitBoxDiffW = width-diff*2;
+        int hitBoxDiffH = height-diff*2;
         hitBox =  new Rectangle(diff, diff, hitBoxDiffW, hitBoxDiffH);
 
         //COLLISION LOGIC
-        collisionOn = false;
+        colliChecker = new CollisionChecker(gp);
     }
 
     public void update()
     {
-        collisionOn = false;
-        gp.colliChecker.checkTile(this);
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_W) && !collisionOn)
+        colliChecker.checkTile(this);
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_W) && !collisionT)
         {
             direction = "up";
             worldY -= speed;
         }
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_S) && !collisionOn)
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_S) && !collisionB)
         {
             direction = "down";
             worldY += speed;
         }
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_A) && !collisionOn)
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_A) && !collisionL)
         {
             direction = "left";
             worldX -= speed;
         }
-        if (keyHandler.pressedKeys.contains(KeyEvent.VK_D) && !collisionOn)
+        if (keyHandler.pressedKeys.contains(KeyEvent.VK_D) && !collisionR)
         {
             direction = "right";
             worldX += speed;

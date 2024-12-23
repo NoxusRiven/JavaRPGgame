@@ -27,9 +27,9 @@ public class GamePanel extends JPanel implements Runnable
     //CLASSES NEEDED FOR GAME
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
-    CollisionChecker colliChecker = new CollisionChecker(this);
-    Player player = new Player(this, keyHandler);
+    //CollisionChecker colliChecker = new CollisionChecker(this);
     TileManager tileManager = new TileManager(this);
+    Player player = new Player(this, keyHandler);
 
 
     public GamePanel()
@@ -73,9 +73,11 @@ public class GamePanel extends JPanel implements Runnable
             {
                 //update abstract position of a player
                 player.update();
-                colliChecker.checkTile(player);
+
                 //draw updated position of all sprites
                 repaint();
+
+                //reset delta so process will start all over again
                 delta--;
             }
 
@@ -90,8 +92,5 @@ public class GamePanel extends JPanel implements Runnable
 
         tileManager.draw(g2);
         player.draw(g2);
-
-        g2.fillRect(player.hitBox.x, player.hitBox.y, player.hitBox.width, player.hitBox.height);
-        g2.setColor(Color.black);
     }
 }
