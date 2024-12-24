@@ -1,12 +1,17 @@
+package Entities;
+
+import GameLogic.CollisionChecker;
+import GameLogic.GamePanel;
+import GameLogic.KeyHandler;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 public class Player extends Entity
 {
     //PLAYERS DEFAULT STATISTICS
-    GamePanel gp;
-    final int screenX, screenY;
+    public GamePanel gp;
+    public final int screenX, screenY;
 
     public Player(GamePanel gp, KeyHandler keyHandler)
     {

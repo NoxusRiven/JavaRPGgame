@@ -1,8 +1,9 @@
-import java.awt.*;
+package Maps;
+
 import java.awt.image.BufferedImage;
 
 public class Tile
 {
     public boolean collision = false;
-    BufferedImage image;
+    public BufferedImage image;
 }

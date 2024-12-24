@@ -1,35 +1,39 @@
+package GameLogic;
+
+import Entities.Player;
+import Items.ItemManager;
+import Maps.TileManager;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GamePanel extends JPanel implements Runnable
 {
     //SCREEN SETTINGS
-    final int originalTileSize = 16; //16x16 tile
-    final int scale = 3;
+    public final int originalTileSize = 16; //16x16 tile
+    public final int scale = 3;
 
-    final int tileSize = originalTileSize*scale; //game tile 48x48
-    final int maxScreenCol = 32;
-    final int maxScreenRow = 20;
-    final int maxScreenWidth = tileSize*maxScreenCol;
-    final int maxScreenHeight = tileSize*maxScreenRow;
+    public final int tileSize = originalTileSize*scale; //game tile 48x48
+    public final int maxScreenCol = 32;
+    public final int maxScreenRow = 20;
+    public final int maxScreenWidth = tileSize*maxScreenCol;
+    public final int maxScreenHeight = tileSize*maxScreenRow;
 
     //WORLD SETTINGS
-    final int maxWorldCol = 60;
-    final int maxWorldRow = 50;
-    final int worldWidth = tileSize*maxWorldCol;
-    final int worldHeight = tileSize*maxWorldRow;
+    public final int maxWorldCol = 60;
+    public final int maxWorldRow = 50;
+    public final int worldWidth = tileSize*maxWorldCol;
+    public final int worldHeight = tileSize*maxWorldRow;
 
     //FPS
-    final int FPS = 60;
+    public final int FPS = 60;
 
     //CLASSES NEEDED FOR GAME
-    KeyHandler keyHandler = new KeyHandler();
-    Thread gameThread;
-    ItemManager itemManager = new ItemManager(this);
-    TileManager tileManager = new TileManager(this);
-    Player player = new Player(this, keyHandler);
+    public KeyHandler keyHandler = new KeyHandler();
+    public Thread gameThread;
+    public ItemManager itemManager = new ItemManager(this);
+    public TileManager tileManager = new TileManager(this);
+    public Player player = new Player(this, keyHandler);
 
 
     public GamePanel()
@@ -45,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable
     public void startGameThread()
     {
         gameThread = new Thread(this);
-        System.out.println(itemManager.itemToDraw.worldX+" "+itemManager.itemToDraw.worldX+" "+itemManager.itemToDraw.name);
+        System.out.println();
         gameThread.start();
     }
 

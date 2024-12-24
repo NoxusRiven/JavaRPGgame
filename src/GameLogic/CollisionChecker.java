@@ -1,9 +1,12 @@
+package GameLogic;
+
+import Entities.Entity;
+
 import java.awt.event.KeyEvent;
-import java.util.*;
 
 public class CollisionChecker
 {
-    GamePanel gp;
+    public GamePanel gp;
 
     public CollisionChecker(GamePanel gp)
     {

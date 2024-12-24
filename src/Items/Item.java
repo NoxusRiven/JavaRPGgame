@@ -1,15 +1,18 @@
+package Items;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import GameLogic.GamePanel;
 
 public abstract class Item
 {
-    String name;
-    int price;
+    public String name;
+    public int price;
 
-    boolean collision = false;
-    int worldX, worldY;
-    BufferedImage image;
-    Color color; //temp var
+    public boolean collision = false;
+    public int worldX, worldY;
+    public BufferedImage image;
+    public Color color; //temp var
 
     public void draw(Graphics2D g2, GamePanel gp)
     {

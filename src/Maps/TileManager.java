@@ -1,4 +1,6 @@
-import org.w3c.dom.css.RGBColor;
+package Maps;
+
+import GameLogic.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,9 +11,9 @@ import java.io.InputStreamReader;
 
 public class TileManager
 {
-    GamePanel gp;
-    Tile[] tiles;
-    int[][] mapTileNum;
+    public GamePanel gp;
+    public Tile[] tiles;
+    public int[][] mapTileNum;
 
     public TileManager(GamePanel gp)
     {

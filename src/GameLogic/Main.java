@@ -1,3 +1,5 @@
+package GameLogic;
+
 import javax.swing.*;
 /*TODO:
     draw rest of the sprites (IN PROCESS)

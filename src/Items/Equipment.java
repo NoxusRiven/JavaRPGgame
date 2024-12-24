@@ -1,3 +1,7 @@
+package Items;
+
+import GameLogic.Skill;
+
 import java.awt.*;
 
 enum EqRarity
@@ -51,9 +55,9 @@ enum EqRarity
 
 public class Equipment extends Item
 {
-    EqRarity rarity;
-    Skill[] skill = new Skill[5];
-    float dropChance;
+    public EqRarity rarity;
+    public Skill[] skill = new Skill[5];
+    public float dropChance;
 
     public Equipment(String name,int worldX, int worldY) //temp constr
     {

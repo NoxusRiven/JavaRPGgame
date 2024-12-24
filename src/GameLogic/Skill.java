@@ -1,9 +1,9 @@
-
+package GameLogic;
 
 public class Skill
 {
-    String name;
-    String description;
+    public String name;
+    public String description;
     public enum Type
     {
         FIRE,
@@ -12,7 +12,7 @@ public class Skill
         MAGIC,
         POISON
     };
-    Type type;
+    public Type type;
 
     public Skill(String name, String description, Type type)
     {

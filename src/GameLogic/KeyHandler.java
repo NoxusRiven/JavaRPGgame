@@ -1,12 +1,13 @@
+package GameLogic;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.security.Key;
 import java.util.HashSet;
 import java.util.Set;
 
 public class KeyHandler implements KeyListener
 {
-    final Set<Integer> pressedKeys = new HashSet<>();
+    public final Set<Integer> pressedKeys = new HashSet<>();
 
 
     @Override

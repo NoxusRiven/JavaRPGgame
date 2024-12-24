@@ -1,7 +1,11 @@
+package Items;
+
+import GameLogic.GamePanel;
+
 public class ItemManager
 {
-    GamePanel gp;
-    Item itemToDraw;
+    public GamePanel gp;
+    public Item itemToDraw;
 
     public ItemManager(GamePanel gp)
     {

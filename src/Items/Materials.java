@@ -1,3 +1,5 @@
+package Items;
+
 enum MatRarity //TODO: finish this enum
 {
     COMMON,
@@ -7,5 +9,5 @@ enum MatRarity //TODO: finish this enum
 
 public class Materials
 {
-    int count;
+    public int count;
 }
