@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable
     //CLASSES NEEDED FOR GAME
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
-    //CollisionChecker colliChecker = new CollisionChecker(this);
+    ItemManager itemManager = new ItemManager(this);
     TileManager tileManager = new TileManager(this);
     Player player = new Player(this, keyHandler);
 
@@ -45,6 +45,7 @@ public class GamePanel extends JPanel implements Runnable
     public void startGameThread()
     {
         gameThread = new Thread(this);
+        System.out.println(itemManager.itemToDraw.worldX+" "+itemManager.itemToDraw.worldX+" "+itemManager.itemToDraw.name);
         gameThread.start();
     }
 
@@ -91,6 +92,9 @@ public class GamePanel extends JPanel implements Runnable
         Graphics2D g2 = (Graphics2D)g;
 
         tileManager.draw(g2);
+
+        itemManager.itemToDraw.draw(g2,this);
+
         player.draw(g2);
     }
 }
