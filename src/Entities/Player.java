@@ -1,8 +1,11 @@
 package Entities;
 
 import GameLogic.CollisionChecker;
+import GameLogic.GameObject;
 import GameLogic.GamePanel;
 import GameLogic.KeyHandler;
+import Interactables.Gate;
+import Interactables.Interactable;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -35,18 +38,27 @@ public class Player extends Entity
         screenY = gp.maxScreenHeight/2 - (gp.tileSize/2);
 
         //PLAYER HITBOX
-        int diff = 4;
-        int hitBoxDiffW = width-diff*2;
-        int hitBoxDiffH = height-diff*2;
-        hitBox =  new Rectangle(diff, diff, hitBoxDiffW, hitBoxDiffH);
+        getHitBox(gp);
 
         //COLLISION LOGIC
         colliChecker = new CollisionChecker(gp);
     }
 
+    public Rectangle getHitBox(GamePanel gp)
+    {
+        hitBox = new Rectangle(this.worldX, this.worldY, this.width, this.height);
+        return hitBox;
+    }
+
+    @Override
+    public String getClassType() {
+        return "Player";
+    }
+
     public void update()
     {
         colliChecker.checkTile(this);
+        colliChecker.checkGameObject(this);
         if (keyHandler.pressedKeys.contains(KeyEvent.VK_W) && !collisionT)
         {
             direction = "up";
@@ -67,6 +79,18 @@ public class Player extends Entity
             direction = "right";
             worldX += speed;
         }
+        if(keyHandler.pressedKeys.contains(KeyEvent.VK_E) && !colliChecker.collidedObjects.isEmpty())
+        {
+            if(colliChecker.collidingClasses.contains("Gate"))
+            {
+                Gate gate = (Gate) colliChecker.checkGameObject(this, "Gate");
+                System.out.println();
+                gate.setNextMap();
+            }
+
+
+        }
+        colliChecker.collidedObjects.clear();
     }
 
     public void draw(Graphics2D g2)

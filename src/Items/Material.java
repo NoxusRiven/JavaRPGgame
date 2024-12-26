@@ -7,7 +7,12 @@ enum MatRarity //TODO: finish this enum
     VERY_RARE
 }
 
-public class Materials
+public class Material extends Item
 {
     public int count;
+
+    @Override
+    public String getClassType() {
+        return "Material";
+    }
 }

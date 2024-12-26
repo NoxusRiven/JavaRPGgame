@@ -10,7 +10,8 @@ public class Skill
         COLD,
         PHYSICAL,
         MAGIC,
-        POISON
+        POISON,
+        ALL
     };
     public Type type;
 

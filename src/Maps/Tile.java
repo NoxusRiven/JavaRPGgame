@@ -1,5 +1,7 @@
 package Maps;
 
+import GameLogic.GameObject;
+
 import java.awt.image.BufferedImage;
 
 public class Tile

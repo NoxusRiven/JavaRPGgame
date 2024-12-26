@@ -2,10 +2,12 @@ package GameLogic;
 
 import Entities.Player;
 import Items.ItemManager;
-import Maps.TileManager;
+import Maps.MapManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GamePanel extends JPanel implements Runnable
 {
@@ -32,7 +34,7 @@ public class GamePanel extends JPanel implements Runnable
     public KeyHandler keyHandler = new KeyHandler();
     public Thread gameThread;
     public ItemManager itemManager = new ItemManager(this);
-    public TileManager tileManager = new TileManager(this);
+    public MapManager mapManager = new MapManager(this);
     public Player player = new Player(this, keyHandler);
 
 
@@ -49,7 +51,6 @@ public class GamePanel extends JPanel implements Runnable
     public void startGameThread()
     {
         gameThread = new Thread(this);
-        System.out.println();
         gameThread.start();
     }
 
@@ -77,7 +78,9 @@ public class GamePanel extends JPanel implements Runnable
             if(delta >= 1)
             {
                 //update abstract position of a player
+                mapManager.update();
                 player.update();
+                System.out.println(player.collisionT+"\n"+player.collisionB+"\n"+player.collisionL+"\n"+player.collisionR);
 
                 //draw updated position of all sprites
                 repaint();
@@ -95,7 +98,7 @@ public class GamePanel extends JPanel implements Runnable
 
         Graphics2D g2 = (Graphics2D)g;
 
-        tileManager.draw(g2);
+        mapManager.draw(g2);
 
         itemManager.itemToDraw.draw(g2,this);
 

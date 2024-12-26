@@ -58,14 +58,30 @@ public class Equipment extends Item
     public EqRarity rarity;
     public Skill[] skill = new Skill[5];
     public float dropChance;
-
+    enum Type
+    {
+        SWORD,
+        SHIELD,
+        CHEST_PLATE,
+        LEGGINGS,
+        BOOTS,
+        BELT,
+        AMULET,
+        RING
+    }
     public Equipment(String name,int worldX, int worldY) //temp constr
     {
         this.name = name;
         this.worldX = worldX;
         this.worldY = worldY;
-        color = Color.black;
+        color = Color.darkGray;
     }
 
     public Equipment(){}
+
+    @Override
+    public String getClassType()
+    {
+        return "Equipment";
+    }
 }

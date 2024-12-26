@@ -2,17 +2,25 @@ package Items;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
+import GameLogic.GameObject;
 import GameLogic.GamePanel;
 
-public abstract class Item
+public abstract class Item extends GameObject
 {
     public String name;
     public int price;
 
     public boolean collision = false;
-    public int worldX, worldY;
     public BufferedImage image;
     public Color color; //temp var
+    public GamePanel gp;
+
+    @Override
+    public Rectangle getHitBox(GamePanel gp)
+    {
+        return new Rectangle(worldX,worldY,gp.tileSize,gp.tileSize);
+    }
 
     public void draw(Graphics2D g2, GamePanel gp)
     {
